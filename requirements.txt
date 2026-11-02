@@ -1,0 +1,12 @@
+# Install PyTorch first for your machine:
+#   GPU (RTX 4080):  pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128
+#   CPU only:        pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+numpy
+pandas
+scikit-learn
+matplotlib
+pillow
+streamlit
+kaggle
+six
+tqdm
