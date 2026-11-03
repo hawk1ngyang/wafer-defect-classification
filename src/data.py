@@ -24,9 +24,11 @@ def _patch_legacy_pandas():
 
 def load_lswmd(pkl_path):
     """Return (wafer_maps, labels) for the labeled subset of LSWMD.pkl."""
-    import pandas as pd
+    from pandas.compat.pickle_compat import Unpickler
     _patch_legacy_pandas()
-    df = pd.read_pickle(pkl_path)
+    # Pickled under Python 2: byte strings need latin1, which pd.read_pickle can't pass through.
+    with open(pkl_path, "rb") as f:
+        df = Unpickler(f, encoding="latin1").load()
 
     def label_of(x):
         x = np.asarray(x)
