@@ -1,0 +1,40 @@
+name: smoke-test
+
+# Runs the full pipeline on a tiny synthetic dataset (CPU) to catch breakage.
+# The numbers it produces are meaningless; it only checks the code runs end to end.
+on:
+  push:
+  pull_request:
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install
+        run: |
+          pip install torch==2.11.0 torchvision==0.26.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install -r requirements.txt pytest==8.4.2
+      - name: Unit tests
+        run: pytest -q tests
+      - name: Synthetic data
+        run: python scripts/make_synthetic.py --n 600
+      - name: Train 1 epoch (cnn) and 1 epoch (resnet18, focal)
+        run: |
+          python -m src.train --data data/processed/synthetic_64.npz --model cnn --loss weighted --epochs 1 --workers 0 --name ci_cnn
+          python -m src.train --data data/processed/synthetic_64.npz --model resnet18 --loss focal --epochs 1 --workers 0 --name ci_resnet
+      - name: Grad-CAM gallery
+        run: python scripts/gradcam_gallery.py --run runs/ci_cnn --data data/processed/synthetic_64.npz --out /tmp/gallery.png
+      - name: Dashboard loads
+        run: |
+          python - <<'EOF'
+          from streamlit.testing.v1 import AppTest
+          at = AppTest.from_file("app.py", default_timeout=120).run()
+          assert not at.exception, [e.message for e in at.exception]
+          print("dashboard OK")
+          EOF

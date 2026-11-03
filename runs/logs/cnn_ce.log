@@ -1,0 +1,38 @@
+device=cuda model=cnn loss=ce train=121065
+epoch   1  loss 0.3316  val macro-F1 0.6464  35s *
+epoch   2  loss 0.1529  val macro-F1 0.5551  12s
+epoch   3  loss 0.1251  val macro-F1 0.7896  12s *
+epoch   4  loss 0.1150  val macro-F1 0.6496  12s
+epoch   5  loss 0.1050  val macro-F1 0.7670  12s
+epoch   6  loss 0.0974  val macro-F1 0.8464  12s *
+epoch   7  loss 0.0911  val macro-F1 0.8357  12s
+epoch   8  loss 0.0850  val macro-F1 0.7707  12s
+epoch   9  loss 0.0819  val macro-F1 0.7833  12s
+epoch  10  loss 0.0786  val macro-F1 0.8114  12s
+epoch  11  loss 0.0747  val macro-F1 0.8693  12s *
+epoch  12  loss 0.0716  val macro-F1 0.8772  12s *
+epoch  13  loss 0.0683  val macro-F1 0.8825  12s *
+epoch  14  loss 0.0646  val macro-F1 0.8940  12s *
+epoch  15  loss 0.0601  val macro-F1 0.8801  12s
+epoch  16  loss 0.0576  val macro-F1 0.8889  12s
+epoch  17  loss 0.0529  val macro-F1 0.8944  12s *
+epoch  18  loss 0.0499  val macro-F1 0.8960  12s *
+epoch  19  loss 0.0487  val macro-F1 0.8984  12s *
+epoch  20  loss 0.0480  val macro-F1 0.8985  12s *
+              precision    recall  f1-score   support
+
+      Center     0.9375    0.9430    0.9402       859
+       Donut     0.8727    0.8649    0.8688       111
+    Edge-Loc     0.8869    0.8314    0.8583      1038
+   Edge-Ring     0.9824    0.9819    0.9822      1936
+         Loc     0.8549    0.7549    0.8018       718
+   Near-full     0.9333    0.9333    0.9333        30
+      Random     0.9017    0.9017    0.9017       173
+     Scratch     0.8515    0.8159    0.8333       239
+        none     0.9894    0.9946    0.9920     29486
+
+    accuracy                         0.9806     34590
+   macro avg     0.9123    0.8913    0.9013     34590
+weighted avg     0.9800    0.9806    0.9802     34590
+
+Saved results to runs\cnn_ce

@@ -1,0 +1,48 @@
+﻿device=cuda model=resnet18 loss=weighted train=121065
+epoch   1  loss 0.6931  val macro-F1 0.7161  104s *
+epoch   2  loss 0.3714  val macro-F1 0.6713  86s
+epoch   3  loss 0.2931  val macro-F1 0.7913  86s *
+epoch   4  loss 0.2747  val macro-F1 0.7742  86s
+epoch   5  loss 0.2599  val macro-F1 0.7971  85s *
+epoch   6  loss 0.2437  val macro-F1 0.7662  86s
+epoch   7  loss 0.2348  val macro-F1 0.7559  86s
+epoch   8  loss 0.2226  val macro-F1 0.7971  86s *
+epoch   9  loss 0.2110  val macro-F1 0.8564  86s *
+epoch  10  loss 0.1994  val macro-F1 0.8185  86s
+epoch  11  loss 0.1898  val macro-F1 0.8415  86s
+epoch  12  loss 0.1783  val macro-F1 0.7577  84s
+epoch  13  loss 0.1774  val macro-F1 0.8412  86s
+epoch  14  loss 0.1691  val macro-F1 0.8535  86s
+epoch  15  loss 0.1601  val macro-F1 0.7638  81s
+epoch  16  loss 0.1527  val macro-F1 0.8780  83s *
+epoch  17  loss 0.1448  val macro-F1 0.8685  84s
+epoch  18  loss 0.1381  val macro-F1 0.8715  82s
+epoch  19  loss 0.1325  val macro-F1 0.8822  84s *
+epoch  20  loss 0.1254  val macro-F1 0.8680  80s
+epoch  21  loss 0.1152  val macro-F1 0.8558  80s
+epoch  22  loss 0.1083  val macro-F1 0.8898  83s *
+epoch  23  loss 0.0984  val macro-F1 0.8641  84s
+epoch  24  loss 0.0906  val macro-F1 0.9010  80s *
+epoch  25  loss 0.0843  val macro-F1 0.9002  119s
+epoch  26  loss 0.0795  val macro-F1 0.9077  86s *
+epoch  27  loss 0.0739  val macro-F1 0.9061  86s
+epoch  28  loss 0.0687  val macro-F1 0.9057  86s
+epoch  29  loss 0.0672  val macro-F1 0.9022  84s
+epoch  30  loss 0.0671  val macro-F1 0.9067  86s
+              precision    recall  f1-score   support
+
+      Center     0.9242    0.9511    0.9375       859
+       Donut     0.8624    0.8468    0.8545       111
+    Edge-Loc     0.8511    0.8757    0.8632      1038
+   Edge-Ring     0.9819    0.9814    0.9817      1936
+         Loc     0.7417    0.8357    0.7859       718
+   Near-full     0.9062    0.9667    0.9355        30
+      Random     0.9298    0.9191    0.9244       173
+     Scratch     0.7405    0.8954    0.8106       239
+        none     0.9939    0.9874    0.9906     29486
+
+    accuracy                         0.9782     34590
+   macro avg     0.8813    0.9177    0.8982     34590
+weighted avg     0.9794    0.9782    0.9787     34590
+
+Saved results to runs\resnet18_weighted

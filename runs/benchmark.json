@@ -1,0 +1,24 @@
+{
+  "cpu": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+  "torch_threads": 16,
+  "gpu": "NVIDIA GeForce RTX 4080 Laptop GPU",
+  "batch": 256,
+  "runs": {
+    "cnn": {
+      "params_m": 1.175529,
+      "checkpoint_mb": 4.724517,
+      "wafers_per_s_cpu": 963.2776345369125,
+      "wafers_per_s_cpu_batch1": 386.1702407683614,
+      "wafers_per_s_cuda": 22350.692376148345,
+      "wafers_per_s_cuda_batch1": 1453.5330385288578
+    },
+    "resnet18": {
+      "params_m": 11.173449,
+      "checkpoint_mb": 44.767179,
+      "wafers_per_s_cpu": 117.0212514706894,
+      "wafers_per_s_cpu_batch1": 67.79942218937107,
+      "wafers_per_s_cuda": 3054.3080862165334,
+      "wafers_per_s_cuda_batch1": 692.7457853885026
+    }
+  }
+}
